@@ -34,7 +34,7 @@ public class GameView {
         // UI bar
         HBox uiBar = new HBox(10);
         uiBar.setPrefHeight(GameConstants.HAUTEUR_FENETRE - GameConstants.HAUTEUR_JEU);
-        uiBar.setAlignment(Pos.CENTER_LEFT);
+        uiBar.setAlignment(Pos.CENTER);
         pauseBtn   = new Button("Pause");
         debugCheck = new CheckBox("Debug");
         scoreLabel = new Label("Score: 0");

@@ -41,6 +41,7 @@ public class GameController {
 
     private AnimationTimer boucle;
     private long dernierTempsNano;
+    private boolean paused = false;
 
     // Image resources
     private final Image bgImage;
@@ -88,9 +89,13 @@ public class GameController {
         // Pause button
         view.getPauseButton().setOnAction(e -> {
             if ("Pause".equals(view.getPauseButton().getText())) {
+                paused = true;
                 boucle.stop();
                 view.getPauseButton().setText("Resume");
             } else {
+                paused = false;
+                // Reset last time to prevent a huge dt
+                dernierTempsNano = System.nanoTime();
                 boucle.start();
                 view.getPauseButton().setText("Pause");
             }
