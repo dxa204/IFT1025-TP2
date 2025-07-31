@@ -1,5 +1,8 @@
 package common;
 
+/**
+ * Classe qui contient les constantes du jeu.
+ */
 public class GameConstants {
     public static final int LARGEUR         = 640;
     public static final int HAUTEUR_JEU     = 400;
