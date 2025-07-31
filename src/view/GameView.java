@@ -44,6 +44,7 @@ public class GameView {
         scene = new Scene(root, GameConstants.LARGEUR, GameConstants.HAUTEUR_FENETRE);
     }
 
+    // Getters
     public Scene getScene() { return scene; }
     public Canvas getCanvas() { return canvas; }
     public GraphicsContext getGraphicsContext() { return gc; }
