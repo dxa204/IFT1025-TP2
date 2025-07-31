@@ -49,6 +49,10 @@ public class GameController {
     private final List<Image> obstacleImages = new ArrayList<>();
     private final Map<Obstacle, Image> obstacleImageMap = new HashMap<>();
 
+    /**
+     * Initialise la fenêtre avec les différentes exigences.
+     * @param stage La fenêtre principale de l'application.
+     */
     public GameController(Stage stage) {
         view = new GameView();
         Scene scene = view.getScene();
@@ -104,7 +108,10 @@ public class GameController {
         initGameModel();
         initGameLoop();
     }
-
+    
+    /**
+     * Démarrage du jeu.
+     */
     private void initGameModel() {
         ghost = new Ghost(0, GameConstants.HAUTEUR_JEU / 2.0);
         gravite = GameConstants.INIT_GRAVITE;
@@ -115,7 +122,10 @@ public class GameController {
         view.getScoreLabel().setText("Score: 0");
         obstacleImageMap.clear();
     }
-
+    
+    /**
+     * Démarre la loop pour actualiser ce qui est affiché continuellement.
+     */
     private void initGameLoop() {
         dernierTempsNano = System.nanoTime();
         boucle = new AnimationTimer() {
@@ -129,7 +139,11 @@ public class GameController {
         };
         boucle.start();
     }
-
+    
+    /**
+     * Méthode qui met à jour ce qui est affiché sur l'application.
+     * @param dt intervalle de temps    .
+     */
     private void update(double dt) {
         ghost.update(dt, gravite, GameConstants.HAUTEUR_JEU);
 
@@ -186,6 +200,10 @@ public class GameController {
         }
     }
 
+    /**
+     * Permet d'afficher les images aux emplacements des obstacles/ghost
+     * ainsi qu'afficher des cercles si debug est activé.
+     */
     private void draw() {
         GraphicsContext gc = view.getGraphicsContext();
 
